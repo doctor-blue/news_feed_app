@@ -1,6 +1,5 @@
 package com.example.newsfeedapp.ui.newsfeed
 
-import android.media.Image
 import android.net.Uri
 import android.view.View
 import android.view.ViewGroup
@@ -111,7 +110,6 @@ class NewsFeedAdapter(
         override fun onBind(item: NewsFeedEntity) {
             this.item = item
             binding.newsFeed = item
-            binding.executePendingBindings()
         }
 
     }
@@ -149,7 +147,6 @@ class NewsFeedAdapter(
 
             with(binding) {
                 newsFeed = item
-                executePendingBindings()
 
                 item.imagesEntity?.let {
                     binding.page = "${1}/${it.size}"
@@ -169,7 +166,7 @@ class NewsFeedAdapter(
     inner class NewsFeedVideoViewHolder(private val binding: ItemNewsFeedVideoBinding) :
         BaseViewHolder<NewsFeedEntity>(binding.root) {
         private var item: NewsFeedEntity? = null
-        private var mediaControls: MediaController? = null
+
         init {
             binding.root.setOnClickListener {
                 item?.let {
@@ -186,18 +183,11 @@ class NewsFeedAdapter(
 
         override fun onBind(item: NewsFeedEntity) {
             this.item = item
-            if (mediaControls == null)
-            {
-                mediaControls = MediaController(binding.root.context)
-                binding.videoView.setMediaController(mediaControls);
-            }
+//             val mediaControls= MediaController(binding.root.context)
+//                binding.videoView.setMediaController(mediaControls)
 
             with(binding) {
                 newsFeed = item
-                executePendingBindings()
-                item.content?.let {
-                    videoView.setVideoURI(Uri.parse(it.href))
-                }
             }
 
         }

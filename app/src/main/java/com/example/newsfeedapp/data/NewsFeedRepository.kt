@@ -10,10 +10,22 @@ import javax.inject.Inject
 
 class NewsFeedRepository @Inject constructor(private val newsService: NewsService) {
 
-     fun getNewsFeed() = liveData(Dispatchers.IO) {
+    fun getNewsFeed() = liveData(Dispatchers.IO) {
         emit(Resource.Loading(null))
         try {
             emit(Resource.Success(newsService.getNewsFeeds()))
+        } catch (ex: IOException) {
+            emit(Resource.Error(null, ex.message ?: "Error"))
+        } catch (ex: HttpException) {
+            emit(Resource.Error(null, ex.message ?: "Error"))
+        }
+    }
+
+
+    fun getNewsFeedDetail() = liveData(Dispatchers.IO) {
+        emit(Resource.Loading(null))
+        try {
+            emit(Resource.Success(newsService.getDetailFeed()))
         } catch (ex: IOException) {
             emit(Resource.Error(null, ex.message ?: "Error"))
         } catch (ex: HttpException) {

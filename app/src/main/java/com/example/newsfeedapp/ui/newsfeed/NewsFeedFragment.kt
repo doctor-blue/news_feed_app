@@ -5,12 +5,14 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devcomentry.moonlight.binding.BindingFragment
 import com.example.newsfeedapp.R
 import com.example.newsfeedapp.databinding.FragmentNewFeedBinding
 import com.example.newsfeedapp.utils.Resource
+import com.example.newsfeedapp.utils.isNetworkConnected
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,6 +22,8 @@ class NewsFeedFragment : BindingFragment<FragmentNewFeedBinding>(R.layout.fragme
     private val newsFeedAdapter: NewsFeedAdapter by lazy {
         NewsFeedAdapter {
             //on click
+            findNavController().navigate(R.id.action_homeFragment_to_feedDetailFragment)
+
         }
     }
 
@@ -45,14 +49,14 @@ class NewsFeedFragment : BindingFragment<FragmentNewFeedBinding>(R.layout.fragme
                 is Resource.Loading -> {
                 }
                 is Resource.Success -> {
-                    Log.d(
-                        "NewsFeedFragment",
-                        "data: " + (it.data.itemsEntity?.get(0)!!.contentType ?: "")
-                    )
                     newsFeedAdapter.submitList(it.data.itemsEntity)
                 }
                 is Resource.Error -> {
-                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                    if (!requireContext().isNetworkConnected()) {
+                        Toast.makeText(requireContext(), R.string.no_network_mess, Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         })

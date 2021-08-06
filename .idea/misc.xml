@@ -4,12 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1685185185185185" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.25462962962962965" />
+        <entry key="app/src/main/res/drawable/ic_baseline_cancel_presentation_24.xml" value="0.25092592592592594" />
         <entry key="app/src/main/res/drawable/ic_baseline_pause_circle_outline_24.xml" value="0.16111111111111112" />
         <entry key="app/src/main/res/drawable/ic_baseline_pause_circle_outline_32.xml" value="0.16111111111111112" />
         <entry key="app/src/main/res/drawable/ic_baseline_play_circle_outline_32.xml" value="0.2574074074074074" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.28125" />
-        <entry key="app/src/main/res/layout/fragment_feed_detail.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/fragment_feed_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/fragment_life.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/fragment_new_feed.xml" value="0.2953125" />
@@ -17,9 +19,14 @@
         <entry key="app/src/main/res/layout/item_news_feed.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_news_feed_1.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/item_news_feed_2.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/item_news_feed_3.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/item_news_feed_3.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_news_feed_image.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/item_news_feed_video.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_section_1.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_section_2.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/item_section_3.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/item_section_type_1.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/item_webview.xml" value="0.2953125" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2953125" />
       </map>
     </option>

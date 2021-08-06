@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="section"
+            type="com.example.newsfeedapp.model.entity.SectionEntity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120dp"
+        android:paddingVertical="@dimen/_12dp">
+
+        <ImageView
+            android:id="@+id/img_feed"
+            app:url="@{section.sectionContentEntity.href}"
+            android:layout_width="@dimen/_115dp"
+            android:layout_height="@dimen/_80dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            android:maxLines="3"
+            android:layout_marginEnd="@dimen/_8dp"
+            android:text="@{section.sectionContentEntity.caption}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sp"
+            app:layout_constraintEnd_toStartOf="@id/img_feed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

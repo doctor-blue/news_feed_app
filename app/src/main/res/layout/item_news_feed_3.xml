@@ -34,7 +34,7 @@
             android:id="@+id/txt_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_24dp"
+            android:layout_marginBottom="@dimen/_16dp"
             android:paddingHorizontal="@dimen/_12dp"
             android:text="@{newsFeed.title}"
             android:textColor="@color/white"
@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_12dp"
-            android:layout_marginBottom="@dimen/_24dp"
+            android:layout_marginBottom="@dimen/_16dp"
             android:src="@drawable/ic_baseline_cancel_presentation_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
