@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="newsFeed"
+            type="com.example.newsfeedapp.model.entity.NewsFeedEntity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120dp"
+        android:paddingVertical="@dimen/_12dp">
+
+        <ImageView
+            android:id="@+id/img_feed"
+            imageUrl="@{newsFeed.imagesEntity}"
+            android:layout_width="@dimen/_115dp"
+            android:layout_height="@dimen/_80"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            android:maxLines="3"
+            android:layout_marginEnd="@dimen/_8dp"
+            android:text="@{newsFeed.title}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sp"
+            app:layout_constraintEnd_toStartOf="@id/img_feed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_publisher_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12dp"
+            android:layout_marginTop="@dimen/_24dp"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:text="@{newsFeed.publisherEntity.name}"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8dp"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:text="@{newsFeed.formatPublishedDate()}"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/img_cancel" />
+
+        <ImageView
+            android:id="@+id/img_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_12dp"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:src="@drawable/ic_baseline_cancel_presentation_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/img_feed"
+            app:tint="@android:color/darker_gray" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

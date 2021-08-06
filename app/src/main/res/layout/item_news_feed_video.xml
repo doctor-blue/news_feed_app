@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="newsFeed"
+            type="com.example.newsfeedapp.model.entity.NewsFeedEntity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200dp">
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8dp"
+            android:text="@{newsFeed.title}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <VideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title"
+            app:layout_constraintVertical_bias="0.0"
+            app:urlVideo="@{newsFeed.content.href}"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <ImageView
+            url="@{newsFeed.content.previewImage.href}"
+            android:id="@+id/img_thumbnail"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/video_view"
+            app:layout_constraintEnd_toEndOf="@id/video_view"
+            app:layout_constraintStart_toStartOf="@id/video_view"
+            app:layout_constraintTop_toTopOf="@+id/video_view" />
+
+        <ImageView
+            android:id="@+id/img_pause"
+            android:layout_width="@dimen/_48dp"
+            android:layout_height="@dimen/_48dp"
+            android:src="@drawable/ic_baseline_play_circle_outline_32"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/video_view" />
+
+        <TextView
+            android:id="@+id/txt_publisher_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12dp"
+            android:layout_marginTop="@dimen/_24dp"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:text="@{newsFeed.publisherEntity.name}"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8dp"
+            android:layout_marginEnd="@dimen/_8dp"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:text="@{newsFeed.formatPublishedDate()}"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txt_publisher_name" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

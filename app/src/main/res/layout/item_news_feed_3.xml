@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="newsFeed"
+            type="com.example.newsfeedapp.model.entity.NewsFeedEntity" />
+        <variable
+            name="page"
+            type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200dp">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/news_feed_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <View
+            android:id="@+id/view_above"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#59000000" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_24dp"
+            android:paddingHorizontal="@dimen/_12dp"
+            android:text="@{newsFeed.title}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sp"
+            android:maxLines="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_publisher_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12dp"
+            android:layout_marginBottom="@dimen/_3dp"
+            android:text="@{newsFeed.publisherEntity.name}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt_title"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12dp"
+            android:layout_marginBottom="@dimen/_3dp"
+            android:text="@{newsFeed.formatPublishedDate()}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt_title"
+            app:layout_constraintStart_toEndOf="@id/txt_publisher_name" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_12dp"
+            android:layout_marginBottom="@dimen/_24dp"
+            android:src="@drawable/ic_baseline_cancel_presentation_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_12dp"
+            android:layout_marginTop="@dimen/_3dp"
+            android:text="@{page}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.doctor-blue:moonlight:26af56aafd@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5d75889ba6d4ec9343ffc981df9df22c/transformed/jetified-moonlight-26af56aafd/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5d75889ba6d4ec9343ffc981df9df22c/transformed/jetified-moonlight-26af56aafd/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5d75889ba6d4ec9343ffc981df9df22c/transformed/jetified-moonlight-26af56aafd/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.doctor-blue/moonlight/26af56aafd/6c8faa7d021d4b1b8e7b976d109d7c975e42aeff/moonlight-26af56aafd-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

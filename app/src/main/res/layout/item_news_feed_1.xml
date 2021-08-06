@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="newsFeed"
+            type="com.example.newsfeedapp.model.entity.NewsFeedEntity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="172dp">
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6dp"
+            android:maxLines="2"
+            android:paddingHorizontal="@dimen/_8dp"
+            android:text="@{newsFeed.title}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_num_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/_8dp"
+            android:layout_marginStart="@dimen/_8dp"
+            android:scaleType="fitXY"
+            app:at="@{0}"
+            app:imageUrls="@{newsFeed.imagesEntity}"
+            app:layout_constraintBottom_toTopOf="@id/txt_publisher_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title"
+            app:layout_constraintWidth_percent="0.32" />
+
+        <ImageView
+            android:id="@+id/img_num_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/_8dp"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:scaleType="fitXY"
+            app:at="@{1}"
+            app:imageUrls="@{newsFeed.imagesEntity}"
+            app:layout_constraintBottom_toTopOf="@id/txt_publisher_name"
+            app:layout_constraintEnd_toStartOf="@id/img_num_3"
+            app:layout_constraintStart_toEndOf="@id/img_num_1"
+            app:layout_constraintTop_toBottomOf="@id/txt_title"
+            app:layout_constraintWidth_percent="0.32" />
+
+        <ImageView
+            android:id="@+id/img_num_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/_8dp"
+            android:layout_marginTop="@dimen/_8dp"
+            android:scaleType="fitXY"
+            app:at="@{2}"
+            app:imageUrls="@{newsFeed.imagesEntity}"
+            app:layout_constraintBottom_toTopOf="@id/txt_publisher_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title"
+            app:layout_constraintWidth_percent="0.32" />
+
+        <TextView
+            android:id="@+id/txt_publisher_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12dp"
+            android:layout_marginTop="@dimen/_24dp"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:text="@{newsFeed.publisherEntity.name}"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8dp"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:text="@{newsFeed.formatPublishedDate()}"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/img_cancel" />
+
+        <ImageView
+            android:id="@+id/img_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_12dp"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:src="@drawable/ic_baseline_cancel_presentation_24"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
