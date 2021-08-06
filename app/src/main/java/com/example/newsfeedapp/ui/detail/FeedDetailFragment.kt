@@ -47,7 +47,7 @@ class FeedDetailFragment :
                 )
             )
 
-            detailViewModel.detailFeedLiveData.observe(viewLifecycleOwner, {
+            detailViewModel.getDetailFeed().observe(viewLifecycleOwner, {
 
                 pbDetail.isVisible = it is Resource.Loading
 
@@ -58,7 +58,6 @@ class FeedDetailFragment :
                     is Resource.Success -> {
                         newsFeed = it.data
                         adapter.submitList(it.data.sectionEntities)
-
                     }
                     is Resource.Error -> {
                         if (!requireContext().isNetworkConnected()) {
