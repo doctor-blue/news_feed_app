@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.devcomentry.moonlight.binding.BindingFragment
 import com.example.newsfeedapp.R
 import com.example.newsfeedapp.databinding.FragmentNewFeedBinding
+import com.example.newsfeedapp.ui.home.HomeFragment
+import com.example.newsfeedapp.ui.home.HomeFragmentDirections
 import com.example.newsfeedapp.utils.Resource
 import com.example.newsfeedapp.utils.isNetworkConnected
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,7 +24,7 @@ class NewsFeedFragment : BindingFragment<FragmentNewFeedBinding>(R.layout.fragme
     private val newsFeedAdapter: NewsFeedAdapter by lazy {
         NewsFeedAdapter {
             //on click
-            findNavController().navigate(R.id.action_homeFragment_to_feedDetailFragment)
+            findNavController().navigate(HomeFragmentDirections.openNewsFeedDetail())
 
         }
     }
