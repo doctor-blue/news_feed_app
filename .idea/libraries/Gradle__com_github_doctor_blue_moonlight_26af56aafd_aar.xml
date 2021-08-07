@@ -2,9 +2,10 @@
   <library name="Gradle: com.github.doctor-blue:moonlight:26af56aafd@aar">
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5d75889ba6d4ec9343ffc981df9df22c/transformed/jetified-moonlight-26af56aafd/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/48dd221ef91814458218e9c163a2bc5c/transformed/jetified-moonlight-26af56aafd/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/48dd221ef91814458218e9c163a2bc5c/transformed/jetified-moonlight-26af56aafd/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/48dd221ef91814458218e9c163a2bc5c/transformed/jetified-moonlight-26af56aafd/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/740c9b2632e1909e4a571924dbd3f283/transformed/jetified-moonlight-26af56aafd/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/740c9b2632e1909e4a571924dbd3f283/transformed/jetified-moonlight-26af56aafd/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/740c9b2632e1909e4a571924dbd3f283/transformed/jetified-moonlight-26af56aafd/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
