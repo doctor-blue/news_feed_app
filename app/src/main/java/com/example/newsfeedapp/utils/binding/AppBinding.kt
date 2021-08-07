@@ -3,15 +3,14 @@ package com.example.newsfeedapp.utils.binding
 import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.VideoView
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.example.newsfeedapp.model.entity.ImageEntity
+import com.example.newsfeedapp.model.Image
 
 @BindingAdapter("imageUrl")
-fun loadFromImage(view: ImageView, urls: List<ImageEntity>?) {
+fun loadFromImage(view: ImageView, urls: List<Image>?) {
     urls?.let {
         Glide.with(view.context)
             .load(it[0].href)
@@ -22,7 +21,7 @@ fun loadFromImage(view: ImageView, urls: List<ImageEntity>?) {
 }
 
 @BindingAdapter(value = ["imageUrls", "at"])
-fun loadImageAt(view: ImageView, urls: List<ImageEntity>?, index: Int) {
+fun loadImageAt(view: ImageView, urls: List<Image>?, index: Int) {
     urls?.let {
         if (urls.size > index)
             Glide.with(view.context).load(urls[index].href)

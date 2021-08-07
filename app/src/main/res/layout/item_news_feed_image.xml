@@ -5,7 +5,7 @@
     <data>
         <variable
             name="image"
-            type="com.example.newsfeedapp.model.entity.ImageEntity" />
+            type="com.example.newsfeedapp.model.Image" />
 
     </data>
 

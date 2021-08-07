@@ -6,15 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.devcomentry.moonlight.binding.binding
 import com.example.newsfeedapp.R
 import com.example.newsfeedapp.databinding.ItemNewsFeedImageBinding
-import com.example.newsfeedapp.model.entity.ImageEntity
+import com.example.newsfeedapp.model.Image
 
 class NewsImageViewHolder(val binding: ItemNewsFeedImageBinding) :
     RecyclerView.ViewHolder(binding.root)
 
 class ImagePagerAdapter(
-    private val onImageClick: (ImageEntity) -> Unit
+    private val onImageClick: (Image) -> Unit
 ) : RecyclerView.Adapter<NewsImageViewHolder>() {
-    private var items: MutableList<ImageEntity> = mutableListOf()
+    private var items: MutableList<Image> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsImageViewHolder {
         return NewsImageViewHolder(parent.binding(R.layout.item_news_feed_image, false))
@@ -31,7 +31,7 @@ class ImagePagerAdapter(
     override fun getItemCount(): Int = items.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setImages(images: List<ImageEntity>) {
+    fun setImages(images: List<Image>) {
         items.clear()
         items.addAll(images)
         notifyDataSetChanged()

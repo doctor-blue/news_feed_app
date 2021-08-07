@@ -9,7 +9,7 @@
 
         <variable
             name="section"
-            type="com.example.newsfeedapp.model.entity.SectionEntity" />
+            type="com.example.newsfeedapp.model.Section" />
 
     </data>
 
@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_8dp"
-            android:text="@{section.sectionContentEntity.caption}"
+            android:text="@{section.sectionContent.caption}"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,12 +36,12 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_title"
             app:layout_constraintVertical_bias="0.0"
-            app:urlVideo="@{section.sectionContentEntity.href}"
+            app:urlVideo="@{section.sectionContent.href}"
             tools:layout_editor_absoluteX="0dp" />
 
         <ImageView
             android:id="@+id/img_thumbnail"
-            url="@{section.sectionContentEntity.previewImageEntity.href}"
+            url="@{section.sectionContent.previewImage.href}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="@id/video_view"

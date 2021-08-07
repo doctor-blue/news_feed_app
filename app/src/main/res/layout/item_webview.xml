@@ -6,7 +6,7 @@
 
         <variable
             name="markup"
-            type="com.example.newsfeedapp.model.entity.MarkupEntity" />
+            type="com.example.newsfeedapp.model.Markup" />
 
     </data>
 

@@ -1,9 +1,7 @@
 package com.example.newsfeedapp.ui.newsfeed
 
-import android.net.Uri
 import android.view.View
 import android.view.ViewGroup
-import android.widget.MediaController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.viewpager2.widget.ViewPager2
@@ -14,19 +12,19 @@ import com.example.newsfeedapp.databinding.ItemNewsFeed1Binding
 import com.example.newsfeedapp.databinding.ItemNewsFeed2Binding
 import com.example.newsfeedapp.databinding.ItemNewsFeed3Binding
 import com.example.newsfeedapp.databinding.ItemNewsFeedVideoBinding
-import com.example.newsfeedapp.model.entity.NewsFeedEntity
+import com.example.newsfeedapp.model.NewsFeedModel
 
-private val DIFF_UTIL = object : DiffUtil.ItemCallback<NewsFeedEntity>() {
+private val DIFF_UTIL = object : DiffUtil.ItemCallback<NewsFeedModel>() {
     override fun areItemsTheSame(
-        oldItem: NewsFeedEntity,
-        newItem: NewsFeedEntity
+        oldItem: NewsFeedModel,
+        newItem: NewsFeedModel
     ): Boolean {
         return oldItem.documentId == newItem.documentId
     }
 
     override fun areContentsTheSame(
-        oldItem: NewsFeedEntity,
-        newItem: NewsFeedEntity
+        oldItem: NewsFeedModel,
+        newItem: NewsFeedModel
     ): Boolean {
         return oldItem.title == newItem.title
     }
@@ -34,8 +32,8 @@ private val DIFF_UTIL = object : DiffUtil.ItemCallback<NewsFeedEntity>() {
 }
 
 class NewsFeedAdapter(
-    private val onClick: ((NewsFeedEntity) -> Unit)
-) : ListAdapter<NewsFeedEntity, BaseViewHolder<NewsFeedEntity>>(DIFF_UTIL) {
+    private val onClick: ((NewsFeedModel) -> Unit)
+) : ListAdapter<NewsFeedModel, BaseViewHolder<NewsFeedModel>>(DIFF_UTIL) {
     companion object {
         const val NEWS_FEED_1 = 0
         const val NEWS_FEED_2 = 1
@@ -53,7 +51,7 @@ class NewsFeedAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): BaseViewHolder<NewsFeedEntity> {
+    ): BaseViewHolder<NewsFeedModel> {
         return when (viewType) {
             NEWS_FEED_1 -> NewsFeedViewHolder1(
                 parent.binding(R.layout.item_news_feed_1)
@@ -70,13 +68,13 @@ class NewsFeedAdapter(
         }
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolder<NewsFeedEntity>, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder<NewsFeedModel>, position: Int) {
         holder.onBind(currentList[position])
     }
 
     inner class NewsFeedViewHolder1(private val binding: ItemNewsFeed1Binding) :
-        BaseViewHolder<NewsFeedEntity>(binding.root) {
-        private var item: NewsFeedEntity? = null
+        BaseViewHolder<NewsFeedModel>(binding.root) {
+        private var item: NewsFeedModel? = null
 
         init {
             binding.root.setOnClickListener {
@@ -86,7 +84,7 @@ class NewsFeedAdapter(
             }
         }
 
-        override fun onBind(item: NewsFeedEntity) {
+        override fun onBind(item: NewsFeedModel) {
             this.item = item
             binding.newsFeed = item
             binding.executePendingBindings()
@@ -96,8 +94,8 @@ class NewsFeedAdapter(
 
 
     inner class NewsFeedViewHolder2(private val binding: ItemNewsFeed2Binding) :
-        BaseViewHolder<NewsFeedEntity>(binding.root) {
-        private var item: NewsFeedEntity? = null
+        BaseViewHolder<NewsFeedModel>(binding.root) {
+        private var item: NewsFeedModel? = null
 
         init {
             binding.root.setOnClickListener {
@@ -107,7 +105,7 @@ class NewsFeedAdapter(
             }
         }
 
-        override fun onBind(item: NewsFeedEntity) {
+        override fun onBind(item: NewsFeedModel) {
             this.item = item
             binding.newsFeed = item
         }
@@ -115,8 +113,8 @@ class NewsFeedAdapter(
     }
 
     inner class NewsFeedViewHolder3(private val binding: ItemNewsFeed3Binding) :
-        BaseViewHolder<NewsFeedEntity>(binding.root) {
-        private var item: NewsFeedEntity? = null
+        BaseViewHolder<NewsFeedModel>(binding.root) {
+        private var item: NewsFeedModel? = null
 
         init {
             binding.root.setOnClickListener {
@@ -134,7 +132,7 @@ class NewsFeedAdapter(
                 ) {
                     super.onPageScrolled(position, positionOffset, positionOffsetPixels)
                     item?.let { news ->
-                        news.imagesEntity?.let {
+                        news.images?.let {
                             binding.page = "${position + 1}/${it.size}"
                         }
                     }
@@ -142,13 +140,13 @@ class NewsFeedAdapter(
             })
         }
 
-        override fun onBind(item: NewsFeedEntity) {
+        override fun onBind(item: NewsFeedModel) {
             this.item = item
 
             with(binding) {
                 newsFeed = item
 
-                item.imagesEntity?.let {
+                item.images?.let {
                     binding.page = "${1}/${it.size}"
                 }
 
@@ -157,15 +155,15 @@ class NewsFeedAdapter(
                 }
                 newsFeedViewPager.adapter = pagerAdapter
 
-                item.imagesEntity?.let { pagerAdapter.setImages(images = it) }
+                item.images?.let { pagerAdapter.setImages(images = it) }
             }
         }
 
     }
 
     inner class NewsFeedVideoViewHolder(private val binding: ItemNewsFeedVideoBinding) :
-        BaseViewHolder<NewsFeedEntity>(binding.root) {
-        private var item: NewsFeedEntity? = null
+        BaseViewHolder<NewsFeedModel>(binding.root) {
+        private var item: NewsFeedModel? = null
 
         init {
             binding.root.setOnClickListener {
@@ -181,7 +179,7 @@ class NewsFeedAdapter(
             }
         }
 
-        override fun onBind(item: NewsFeedEntity) {
+        override fun onBind(item: NewsFeedModel) {
             this.item = item
 //             val mediaControls= MediaController(binding.root.context)
 //                binding.videoView.setMediaController(mediaControls)

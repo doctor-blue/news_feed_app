@@ -62,7 +62,7 @@ class FeedDetailFragment :
                         }
                         is Resource.Success -> {
                             newsFeed = it.data
-                            adapter.submitList(it.data.sectionEntities)
+                            adapter.submitList(it.data.sections)
                             txtLink.isVisible = true
                             txtAnother.isVisible = true
                         }

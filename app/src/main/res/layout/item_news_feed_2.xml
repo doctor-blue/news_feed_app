@@ -8,7 +8,7 @@
 
         <variable
             name="newsFeed"
-            type="com.example.newsfeedapp.model.entity.NewsFeedEntity" />
+            type="com.example.newsfeedapp.model.NewsFeedModel" />
 
     </data>
 
@@ -19,7 +19,7 @@
 
         <ImageView
             android:id="@+id/img_feed"
-            imageUrl="@{newsFeed.imagesEntity}"
+            imageUrl="@{newsFeed.images}"
             android:layout_width="@dimen/_115dp"
             android:layout_height="@dimen/_80dp"
             android:scaleType="fitXY"
@@ -48,7 +48,7 @@
             android:layout_marginStart="@dimen/_12dp"
             android:layout_marginTop="@dimen/_24dp"
             android:layout_marginBottom="@dimen/_8dp"
-            android:text="@{newsFeed.publisherEntity.name}"
+            android:text="@{newsFeed.publisher.name}"
             android:textColor="@android:color/darker_gray"
             android:textSize="@dimen/_12sp"
             app:layout_constraintBottom_toBottomOf="parent"

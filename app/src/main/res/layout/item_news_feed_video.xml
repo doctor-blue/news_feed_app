@@ -9,7 +9,7 @@
 
         <variable
             name="newsFeed"
-            type="com.example.newsfeedapp.model.entity.NewsFeedEntity" />
+            type="com.example.newsfeedapp.model.NewsFeedModel" />
 
     </data>
 
@@ -66,7 +66,7 @@
             android:layout_marginStart="@dimen/_12dp"
             android:layout_marginTop="@dimen/_24dp"
             android:layout_marginBottom="@dimen/_8dp"
-            android:text="@{newsFeed.publisherEntity.name}"
+            android:text="@{newsFeed.publisher.name}"
             android:textColor="@android:color/darker_gray"
             android:textSize="@dimen/_12sp"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -2,7 +2,6 @@ package com.example.newsfeedapp.ui.detail
 
 import android.view.View
 import android.view.ViewGroup
-import android.widget.MediaController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.viewpager2.widget.ViewPager2
@@ -12,30 +11,30 @@ import com.example.newsfeedapp.base.BaseViewHolder
 import com.example.newsfeedapp.databinding.ItemSection1Binding
 import com.example.newsfeedapp.databinding.ItemSection2Binding
 import com.example.newsfeedapp.databinding.ItemSection3Binding
-import com.example.newsfeedapp.model.entity.MarkupEntity
-import com.example.newsfeedapp.model.entity.SectionEntity
+import com.example.newsfeedapp.model.Markup
+import com.example.newsfeedapp.model.Section
 
 
-private val DIFF_UTIL = object : DiffUtil.ItemCallback<SectionEntity>() {
+private val DIFF_UTIL = object : DiffUtil.ItemCallback<Section>() {
     override fun areItemsTheSame(
-        oldItem: SectionEntity,
-        newItem: SectionEntity
+        oldItem: Section,
+        newItem: Section
     ): Boolean {
-        return oldItem.sectionContentEntity == newItem.sectionContentEntity
+        return oldItem.sectionContent == newItem.sectionContent
     }
 
     override fun areContentsTheSame(
-        oldItem: SectionEntity,
-        newItem: SectionEntity
+        oldItem: Section,
+        newItem: Section
     ): Boolean {
-        return oldItem.sectionContentEntity == newItem.sectionContentEntity
+        return oldItem.sectionContent == newItem.sectionContent
     }
 
 }
 
 class SectionAdapter(
-    private val onClick: ((SectionEntity) -> Unit)
-) : ListAdapter<SectionEntity, BaseViewHolder<SectionEntity>>(DIFF_UTIL) {
+    private val onClick: ((Section) -> Unit)
+) : ListAdapter<Section, BaseViewHolder<Section>>(DIFF_UTIL) {
     companion object {
         const val SECTION_1 = 1
         const val SECTION_2 = 2
@@ -53,7 +52,7 @@ class SectionAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): BaseViewHolder<SectionEntity> {
+    ): BaseViewHolder<Section> {
         return when (viewType) {
             SECTION_1 -> SectionWebViewHolder(
                 parent.binding(R.layout.item_section_1)
@@ -67,13 +66,13 @@ class SectionAdapter(
         }
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolder<SectionEntity>, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder<Section>, position: Int) {
         holder.onBind(currentList[position])
     }
 
     inner class SectionWebViewHolder(private val binding: ItemSection1Binding) :
-        BaseViewHolder<SectionEntity>(binding.root) {
-        private var markupList: List<MarkupEntity>? = null
+        BaseViewHolder<Section>(binding.root) {
+        private var markupList: List<Markup>? = null
 
         init {
             binding.webViewPager.registerOnPageChangeCallback(object :
@@ -91,12 +90,12 @@ class SectionAdapter(
             })
         }
 
-        override fun onBind(item: SectionEntity) {
+        override fun onBind(item: Section) {
             with(binding) {
                 section = item
                 executePendingBindings()
-                item.sectionContentEntity?.let { content ->
-                    content.markupEntities?.let { markupEntities ->
+                item.sectionContent?.let { content ->
+                    content.markups?.let { markupEntities ->
 
                         val markupList = markupEntities.filter {
                             it.markupType == 4 && !it.href.isNullOrBlank()
@@ -128,7 +127,7 @@ class SectionAdapter(
     }
 
     inner class Section2ViewHolder(private val binding: ItemSection2Binding) :
-        BaseViewHolder<SectionEntity>(binding.root) {
+        BaseViewHolder<Section>(binding.root) {
         init {
             binding.imgThumbnail.setOnClickListener {
                 binding.videoView.start()
@@ -136,7 +135,7 @@ class SectionAdapter(
                 binding.imgPause.visibility = View.GONE
             }
         }
-        override fun onBind(item: SectionEntity) {
+        override fun onBind(item: Section) {
 //            val mediaControls= MediaController(binding.root.context)
 //            binding.videoView.setMediaController(mediaControls)
 
@@ -148,9 +147,9 @@ class SectionAdapter(
     }
 
     inner class Section3ViewHolder(private val binding: ItemSection3Binding) :
-        BaseViewHolder<SectionEntity>(binding.root) {
+        BaseViewHolder<Section>(binding.root) {
 
-        override fun onBind(item: SectionEntity) {
+        override fun onBind(item: Section) {
             with(binding) {
                 section = item
             }

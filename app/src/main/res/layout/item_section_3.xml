@@ -8,7 +8,7 @@
 
         <variable
             name="section"
-            type="com.example.newsfeedapp.model.entity.SectionEntity" />
+            type="com.example.newsfeedapp.model.Section" />
 
     </data>
 
@@ -19,7 +19,7 @@
 
         <ImageView
             android:id="@+id/img_feed"
-            app:url="@{section.sectionContentEntity.href}"
+            app:url="@{section.sectionContent.href}"
             android:layout_width="@dimen/_115dp"
             android:layout_height="@dimen/_80dp"
             android:scaleType="fitXY"
@@ -34,7 +34,7 @@
             android:layout_marginStart="@dimen/_16dp"
             android:maxLines="3"
             android:layout_marginEnd="@dimen/_8dp"
-            android:text="@{section.sectionContentEntity.caption}"
+            android:text="@{section.sectionContent.caption}"
             android:textColor="@color/black"
             android:textSize="@dimen/_16sp"
             app:layout_constraintEnd_toStartOf="@id/img_feed"
